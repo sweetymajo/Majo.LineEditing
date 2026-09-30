@@ -31,7 +31,7 @@ jobs:
       - name: Resolve version
         shell: bash
         run: |
-          VERSION=$(dotnet msbuild Majo.LineEditor/Majo.LineEditor.csproj \
+          VERSION=$(dotnet msbuild Majo.LineEditing/Majo.LineEditing.csproj \
             -getProperty:Version \
             -nologo)
 
@@ -64,15 +64,15 @@ jobs:
         run: mkdir -p artifacts/nuget
 
       - name: Restore
-        run: dotnet restore Majo.LineEditor.slnx
+        run: dotnet restore Majo.LineEditing.slnx
 
       - name: Build
-        run: dotnet build Majo.LineEditor.slnx -c Release --no-restore
+        run: dotnet build Majo.LineEditing.slnx -c Release --no-restore
 
       - name: Pack
         run: >
           dotnet pack
-          Majo.LineEditor/Majo.LineEditor.csproj
+          Majo.LineEditing/Majo.LineEditing.csproj
           -c Release
           --no-build
 
@@ -81,8 +81,8 @@ jobs:
         run: |
           set -e
 
-          PACKAGE="artifacts/nuget/Majo.LineEditor.${PACKAGE_VERSION}.nupkg"
-          SYMBOL_PACKAGE="artifacts/nuget/Majo.LineEditor.${PACKAGE_VERSION}.snupkg"
+          PACKAGE="artifacts/nuget/Majo.LineEditing.${PACKAGE_VERSION}.nupkg"
+          SYMBOL_PACKAGE="artifacts/nuget/Majo.LineEditing.${PACKAGE_VERSION}.snupkg"
 
           if [ ! -f "$PACKAGE" ]; then
             echo "NuGet package was not generated:"
@@ -98,8 +98,8 @@ jobs:
 
           unzip -l "$PACKAGE" > package-contents.txt
 
-          grep -Fq "lib/net8.0/Majo.LineEditor.dll" package-contents.txt
-          grep -Fq "lib/net10.0/Majo.LineEditor.dll" package-contents.txt
+          grep -Fq "lib/net8.0/Majo.LineEditing.dll" package-contents.txt
+          grep -Fq "lib/net10.0/Majo.LineEditing.dll" package-contents.txt
           grep -Fq "runtimes/linux-x64/native/libmajo_line_editor.so" package-contents.txt
           grep -Fq "README.nuget.md" package-contents.txt
           grep -Fq "LICENSE.txt" package-contents.txt
@@ -107,7 +107,7 @@ jobs:
       - name: Upload NuGet packages
         uses: actions/upload-artifact@v7
         with:
-          name: Majo.LineEditor-NuGet
+          name: Majo.LineEditing-NuGet
           path: |
             artifacts/nuget/*.nupkg
             artifacts/nuget/*.snupkg
@@ -134,6 +134,6 @@ jobs:
 
           git tag -a "${RELEASE_TAG}" \
             "$GITHUB_SHA" \
-            -m "Majo.LineEditor ${PACKAGE_VERSION}"
+            -m "Majo.LineEditing ${PACKAGE_VERSION}"
 
           git push origin "${RELEASE_TAG}"

@@ -1,12 +1,12 @@
 <div align="center">
 
-# Majo.LineEditor
+# Majo.LineEditing
 
 **一个小巧、跨平台的 .NET 交互式行编辑器。**
 
 Windows 使用原生控制台能力，Linux 使用基于 linenoise 的 POSIX 后端，并通过尽可能精简的托管 API 为命令行程序提供稳定的交互式输入体验。
 
-[![NuGet](https://img.shields.io/nuget/v/Majo.LineEditor?style=flat-square&logo=nuget&logoColor=white)](https://www.nuget.org/packages/Majo.LineEditor)
+[![NuGet](https://img.shields.io/nuget/v/Majo.LineEditing?style=flat-square&logo=nuget&logoColor=white)](https://www.nuget.org/packages/Majo.LineEditing)
 [![.NET](https://img.shields.io/badge/.NET-8.0%20%7C%2010.0-512BD4?style=flat-square&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 ![Windows](https://img.shields.io/badge/Windows-supported-0078D4?style=flat-square&logo=windows&logoColor=white)
 ![Linux x64](https://img.shields.io/badge/Linux-x64-FCC624?style=flat-square&logo=linux&logoColor=black)
@@ -20,7 +20,7 @@ Windows 使用原生控制台能力，Linux 使用基于 linenoise 的 POSIX 后
 
 ## 项目简介
 
-`Majo.LineEditor` 为 .NET 控制台程序提供交互式行编辑能力，同时避免让业务程序直接依赖某一套平台专用终端实现。
+`Majo.LineEditing` 为 .NET 控制台程序提供交互式行编辑能力，同时避免让业务程序直接依赖某一套平台专用终端实现。
 
 公共 API 保持简单，内部根据运行平台选择对应后端：
 
@@ -28,7 +28,7 @@ Windows 使用原生控制台能力，Linux 使用基于 linenoise 的 POSIX 后
 - **Linux / POSIX** 使用对 vendored `linenoise` 进行封装的原生 C 后端；
 - Linux 原生库以 runtime asset 的形式直接随仓库提供，因此普通 `.NET` 编译和发布过程**不需要** GCC 或 CMake。
 
-因此，你可以直接在 Windows 上发布 `linux-x64` 版本，再把发布结果放到 Linux 上运行，而不必为了 `Majo.LineEditor` 额外准备一次 Linux 原生编译环境。
+因此，你可以直接在 Windows 上发布 `linux-x64` 版本，再把发布结果放到 Linux 上运行，而不必为了 `Majo.LineEditing` 额外准备一次 Linux 原生编译环境。
 
 ## 主要特性
 
@@ -50,10 +50,10 @@ Windows 使用原生控制台能力，Linux 使用基于 linenoise 的 POSIX 后
 
 ## 安装
 
-`Majo.LineEditor` 已发布至 [NuGet.org](https://www.nuget.org/packages/Majo.LineEditor)：
+`Majo.LineEditing` 已发布至 [NuGet.org](https://www.nuget.org/packages/Majo.LineEditing)：
 
 ```bash
-dotnet add package Majo.LineEditor
+dotnet add package Majo.LineEditing
 ```
 
 ## 快速开始
@@ -61,7 +61,7 @@ dotnet add package Majo.LineEditor
 创建一个 `LineEditor` 实例：
 
 ```csharp
-using Majo.LineEditor;
+using Majo.LineEditing;
 
 using var editor = new LineEditor(new LineEditorOption
 {
@@ -134,7 +134,7 @@ editor.WriteAbove("[background] Connection established.");
 ## 平台架构
 
 ```text
-Majo.LineEditor
+Majo.LineEditing
 │
 ├─ LineEditor
 │  └─ 精简的跨平台公共 API
@@ -230,13 +230,13 @@ libmajo_line_editor.so
 
 ## 交互式控制台要求
 
-`Majo.LineEditor` 面向真实的交互式 Console / TTY。
+`Majo.LineEditing` 面向真实的交互式 Console / TTY。
 
 重定向后的标准输入或标准输出不属于受支持的编辑环境。编辑器同时限制单进程只存在一个活动的行编辑器实例，避免多个后端争用同一套终端状态。
 
 ## 参与开发
 
-欢迎参与 `Majo.LineEditor` 的开发。
+欢迎参与 `Majo.LineEditing` 的开发。
 
 开发环境、交互式测试、本地 NuGet 包验证、POSIX native 开发以及 vendored linenoise 的维护规则，请参阅 [CONTRIBUTING.md](./CONTRIBUTING.md)。
 

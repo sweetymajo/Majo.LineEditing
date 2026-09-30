@@ -332,7 +332,8 @@ int majo_line_editor_start(void *handle, const char *prompt)
 
 /// Stops the current native editing session
 /// @param handle Native context handle
-void majo_line_editor_stop(void *handle)
+/// @param clear_input Nonzero to clear the input area before stopping
+void majo_line_editor_stop(void *handle, int clear_input)
 {
     if (handle == NULL)
     {
@@ -343,6 +344,12 @@ void majo_line_editor_stop(void *handle)
 
     if (editor->editing)
     {
+        if (clear_input)
+        {
+            // Hide the input area before clearing it to avoid leaving a partial line on the terminal
+            (void)hide_for_write_above(editor);
+        }
+
         linenoiseEditStop(&editor->state);
 
         editor->editing = 0;

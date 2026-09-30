@@ -1,13 +1,13 @@
-# Majo.LineEditor
+# Majo.LineEditing
 
 A small, cross-platform interactive line editor for .NET.
 
-`Majo.LineEditor` provides interactive line editing for console applications with a managed Win32 backend on Windows and a native linenoise-based backend on Linux.
+`Majo.LineEditing` provides interactive line editing for console applications with a managed Win32 backend on Windows and a native linenoise-based backend on Linux.
 
 ## Installation
 
 ```bash
-dotnet add package Majo.LineEditor
+dotnet add package Majo.LineEditing
 ```
 
 The package targets:
@@ -40,7 +40,7 @@ The Linux native runtime is included in the package, so normal .NET builds and p
 ## Quick Start
 
 ```csharp
-using Majo.LineEditor;
+using Majo.LineEditing;
 
 using var editor = new LineEditor(new LineEditorOption
 {
@@ -92,6 +92,6 @@ Only one read operation may be active for an editor at a time.
 
 ## Interactive Console Requirement
 
-`Majo.LineEditor` is intended for a real interactive console/TTY.
+`Majo.LineEditing` is intended for a real interactive console/TTY.
 
 Redirected standard input or output is not a supported editing environment. The editor also enforces a single active line-editor instance for the process so the backends do not compete for ownership of the terminal state.

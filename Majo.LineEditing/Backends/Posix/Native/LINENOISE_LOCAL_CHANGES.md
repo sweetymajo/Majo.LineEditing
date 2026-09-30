@@ -1,6 +1,6 @@
 # Linenoise Local Changes
 
-This project vendors **linenoise** as the POSIX line-editing backend used by `Majo.LineEditor`.
+This project vendors **linenoise** as the POSIX line-editing backend used by `Majo.LineEditing`.
 
 The purpose of this file is to record the exact upstream revision and every intentional local modification made to the vendored linenoise source. This should make future upstream upgrades easier to review, compare, and merge.
 
@@ -213,7 +213,7 @@ linenoiseEditResize
 └─ multi-line  → resizeMultiLine
 ```
 
-The caller supplies the currently observed terminal width. Resize detection and scheduling remain outside linenoise in the `Majo.LineEditor` POSIX wrapper.
+The caller supplies the currently observed terminal width. Resize detection and scheduling remain outside linenoise in the `Majo.LineEditing` POSIX wrapper.
 
 ### Single-Line Recovery
 
@@ -272,7 +272,7 @@ refreshMultiLine(l, REFRESH_WRITE);
 
 The normal `refreshMultiLine()` implementation is deliberately left unchanged.
 
-### Integration with `Majo.LineEditor`
+### Integration with `Majo.LineEditing`
 
 Resize detection is intentionally kept outside linenoise.
 
@@ -284,7 +284,7 @@ This separation is intentional:
 
 ```text
 terminal resize detection
-→ Majo.LineEditor wrapper
+→ Majo.LineEditing wrapper
 
 physical resize recovery / linenoise render-state repair
 → linenoiseEditResize()
@@ -399,7 +399,7 @@ When updating the vendored linenoise version:
 
 ## Policy for Future Local Changes
 
-Prefer keeping `linenoise.c` and `linenoise.h` identical to upstream whenever the required behavior can be implemented cleanly in `Majo.LineEditor` itself.
+Prefer keeping `linenoise.c` and `linenoise.h` identical to upstream whenever the required behavior can be implemented cleanly in `Majo.LineEditing` itself.
 
 Project-specific behavior should normally live in the POSIX wrapper or managed backend.
 

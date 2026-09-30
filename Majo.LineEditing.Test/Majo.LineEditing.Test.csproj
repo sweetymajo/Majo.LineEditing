@@ -10,11 +10,11 @@
     </PropertyGroup>
 
     <ItemGroup Condition="'$(UsePackageReference)' != 'true'">
-        <ProjectReference Include="..\Majo.LineEditor\Majo.LineEditor.csproj" />
+        <ProjectReference Include="..\Majo.LineEditing\Majo.LineEditing.csproj" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(UsePackageReference)' == 'true'">
-        <PackageReference Include="Majo.LineEditor"
+        <PackageReference Include="Majo.LineEditing"
                           Version="*-*" />
     </ItemGroup>
 

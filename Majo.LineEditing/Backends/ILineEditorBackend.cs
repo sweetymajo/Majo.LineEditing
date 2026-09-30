@@ -1,4 +1,4 @@
-﻿namespace Majo.LineEditor.Backends;
+﻿namespace Majo.LineEditing.Backends;
 
 /// <summary>
 /// Defines the contract implemented by platform-specific line editor backends

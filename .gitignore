@@ -2,7 +2,7 @@
 bin/
 obj/
 /packages/
-/Majo.LineEditor.sln.DotSettings.user
+/Majo.LineEditing.sln.DotSettings.user
 
 # ----------- Rider -----------
 riderModule.iml

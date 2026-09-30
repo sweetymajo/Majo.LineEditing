@@ -1,5 +1,5 @@
 ﻿// ReSharper disable PropertyCanBeMadeInitOnly.Global
-namespace Majo.LineEditor;
+namespace Majo.LineEditing;
 
 /// <summary>
 /// Configures a <see cref="LineEditor"/> instance

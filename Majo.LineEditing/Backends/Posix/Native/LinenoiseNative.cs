@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace Majo.LineEditor.Backends.Posix.Native;
+namespace Majo.LineEditing.Backends.Posix.Native;
 
 /// <summary>
 /// Provides native bindings for the POSIX line editor
@@ -66,8 +66,9 @@ internal static class LinenoiseNative
     /// Stops the current native editing session
     /// </summary>
     /// <param name="handle">Native context handle</param>
+    /// <param name="clearInput">Nonzero to clear the input buffer</param>
     [DllImport(LibraryName, EntryPoint = "majo_line_editor_stop", CallingConvention = CallingConvention.Cdecl)]
-    internal static extern void Stop(IntPtr handle);
+    internal static extern void Stop(IntPtr handle, int clearInput);
 
     /// <summary>
     /// Waits for console input

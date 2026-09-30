@@ -1,12 +1,12 @@
 <div align="center">
 
-# Majo.LineEditor
+# Majo.LineEditing
 
 **A small, cross-platform interactive line editor for .NET.**
 
 Native console behavior on Windows, a linenoise-based POSIX backend on Linux, and a deliberately small managed API for command-line applications.
 
-[![NuGet](https://img.shields.io/nuget/v/Majo.LineEditor?style=flat-square&logo=nuget&logoColor=white)](https://www.nuget.org/packages/Majo.LineEditor)
+[![NuGet](https://img.shields.io/nuget/v/Majo.LineEditing?style=flat-square&logo=nuget&logoColor=white)](https://www.nuget.org/packages/Majo.LineEditing)
 [![.NET](https://img.shields.io/badge/.NET-8.0%20%7C%2010.0-512BD4?style=flat-square&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 ![Windows](https://img.shields.io/badge/Windows-supported-0078D4?style=flat-square&logo=windows&logoColor=white)
 ![Linux x64](https://img.shields.io/badge/Linux-x64-FCC624?style=flat-square&logo=linux&logoColor=black)
@@ -20,7 +20,7 @@ Native console behavior on Windows, a linenoise-based POSIX backend on Linux, an
 
 ## Overview
 
-`Majo.LineEditor` provides interactive line editing for .NET console applications without forcing the rest of the application to depend on a platform-specific terminal stack.
+`Majo.LineEditing` provides interactive line editing for .NET console applications without forcing the rest of the application to depend on a platform-specific terminal stack.
 
 The public API stays small while the implementation selects a native backend for the current platform:
 
@@ -50,18 +50,18 @@ This makes it possible, for example, to publish a `linux-x64` application direct
 
 ## Installation
 
-`Majo.LineEditor` is available on [NuGet.org](https://www.nuget.org/packages/Majo.LineEditor):
+`Majo.LineEditing` is available on [NuGet.org](https://www.nuget.org/packages/Majo.LineEditing):
 
 ```bash
-dotnet add package Majo.LineEditor
+dotnet add package Majo.LineEditing
 ```
 
 ## Quick Start
 
-Create one editor instance:
+Create one `LineEditor` instance:
 
 ```csharp
-using Majo.LineEditor;
+using Majo.LineEditing;
 
 using var editor = new LineEditor(new LineEditorOption
 {
@@ -134,7 +134,7 @@ If `content` does not already end with a newline, `WriteAbove(...)` adds one.
 ## Platform Architecture
 
 ```text
-Majo.LineEditor
+Majo.LineEditing
 │
 ├─ LineEditor
 │  └─ small cross-platform public API
@@ -230,7 +230,7 @@ This keeps ordinary .NET development platform-independent while still allowing t
 
 ## Interactive Console Requirement
 
-`Majo.LineEditor` is intended for a real interactive console/TTY.
+`Majo.LineEditing` is intended for a real interactive console/TTY.
 
 Redirected standard input or output is not a supported editing environment. The editor also enforces a single active line-editor instance for the process so the backends do not compete for ownership of the terminal state.
 

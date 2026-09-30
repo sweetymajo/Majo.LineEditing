@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace Majo.LineEditor.Backends.Win32;
+namespace Majo.LineEditing.Backends.Win32;
 
 /// <summary>
 /// Provides Win32 console constants, structures, and native methods

@@ -1,4 +1,4 @@
-﻿namespace Majo.LineEditor;
+﻿namespace Majo.LineEditing;
 
 /// <summary>
 /// Describes how a line-read operation completed

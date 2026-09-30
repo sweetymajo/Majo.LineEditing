@@ -5,18 +5,18 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         
-        <PackageId>Majo.LineEditor</PackageId>
-        <Version>0.0.2</Version>
+        <PackageId>Majo.LineEditing</PackageId>
+        <Version>0.0.3</Version>
         <Authors>Sweety Majo</Authors>
         <Description>A small, cross-platform interactive line editor for .NET.</Description>
         <PackageTags>terminal;console;line-editor;cli;linenoise</PackageTags>
         <PackageOutputPath>$(MSBuildProjectDirectory)/../artifacts/nuget</PackageOutputPath>
         
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/sweetymajo/Majo.LineEditor</RepositoryUrl>
+        <RepositoryUrl>https://github.com/sweetymajo/Majo.LineEditing</RepositoryUrl>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
-        <PackageProjectUrl>https://github.com/sweetymajo/Majo.LineEditor</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/sweetymajo/Majo.LineEditing</PackageProjectUrl>
         
         <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -30,7 +30,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="Wcwidth" Version="4.0.1" />
+      <PackageReference Include="Wcwidth" Version="4.0.1" PrivateAssets="compile;contentfiles;build;analyzers" />
     </ItemGroup>
     
     <ItemGroup>

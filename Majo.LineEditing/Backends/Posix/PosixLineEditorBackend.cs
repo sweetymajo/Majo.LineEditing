@@ -1,5 +1,5 @@
 ﻿using System.Runtime.InteropServices;
-using Majo.LineEditor.Backends.Posix.Native;
+using Majo.LineEditing.Backends.Posix.Native;
 
 #if NET9_0_OR_GREATER
 using LockType = System.Threading.Lock;
@@ -7,7 +7,7 @@ using LockType = System.Threading.Lock;
 using LockType = System.Object;
 #endif
 
-namespace Majo.LineEditor.Backends.Posix;
+namespace Majo.LineEditing.Backends.Posix;
 
 /// <summary>
 /// Implements line editing through the native POSIX backend
@@ -192,6 +192,7 @@ internal class PosixLineEditorBackend : ILineEditorBackend
         CancellationToken token = linkedCts.Token;
         
         bool started = false;
+        bool canceled = false;
 
         try
         {
@@ -267,13 +268,18 @@ internal class PosixLineEditorBackend : ILineEditorBackend
                 }
             }
         }
+        catch (OperationCanceledException) when (token.IsCancellationRequested)
+        {
+            canceled = true;
+            throw;
+        }
         finally
         {
             if (started)
             {
                 lock (_nativeLock)
                 {
-                    LinenoiseNative.Stop(handle);
+                    LinenoiseNative.Stop(handle, canceled ? 1 : 0);
                 }
             }
         }

@@ -20,6 +20,6 @@
     <File Path="README.md" />
     <File Path="README.zh-CN.md" />
   </Folder>
-  <Project Path="Majo.LineEditor.Test/Majo.LineEditor.Test.csproj" />
-  <Project Path="Majo.LineEditor/Majo.LineEditor.csproj" />
+  <Project Path="Majo.LineEditing.Test/Majo.LineEditing.Test.csproj" />
+  <Project Path="Majo.LineEditing/Majo.LineEditing.csproj" />
 </Solution>

@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a problem with Majo.LineEditor
+about: Report a problem with Majo.LineEditing
 title: ''
 labels: bug
 assignees: ''
@@ -21,7 +21,7 @@ assignees: ''
 ## Environment
 
 <!--
-Majo.LineEditor version:
+Majo.LineEditing version:
 .NET version:
 Operating system:
 Terminal:

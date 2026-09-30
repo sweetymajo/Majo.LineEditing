@@ -1,6 +1,6 @@
 ﻿using System.Text;
-using Majo.LineEditor;
-using Editor = Majo.LineEditor.LineEditor;
+using Majo.LineEditing;
+using Editor = Majo.LineEditing.LineEditor;
 // ReSharper disable AccessToDisposedClosure
 
 Console.OutputEncoding = Encoding.UTF8;
@@ -523,14 +523,14 @@ static async Task RunMultiLineResizeWriteAboveAsync()
 static void PrintUsage()
 {
     Console.WriteLine("Usage:");
-    Console.WriteLine("  Majo.LineEditor.Test basic");
-    Console.WriteLine("  Majo.LineEditor.Test write-above");
-    Console.WriteLine("  Majo.LineEditor.Test cancellation");
-    Console.WriteLine("  Majo.LineEditor.Test dispose");
-    Console.WriteLine("  Majo.LineEditor.Test resize");
-    Console.WriteLine("  Majo.LineEditor.Test resize-write-above");
-    Console.WriteLine("  Majo.LineEditor.Test multiline");
-    Console.WriteLine("  Majo.LineEditor.Test multiline-write-above");
-    Console.WriteLine("  Majo.LineEditor.Test multiline-resize");
-    Console.WriteLine("  Majo.LineEditor.Test multiline-resize-write-above");
+    Console.WriteLine("  Majo.LineEditing.Test basic");
+    Console.WriteLine("  Majo.LineEditing.Test write-above");
+    Console.WriteLine("  Majo.LineEditing.Test cancellation");
+    Console.WriteLine("  Majo.LineEditing.Test dispose");
+    Console.WriteLine("  Majo.LineEditing.Test resize");
+    Console.WriteLine("  Majo.LineEditing.Test resize-write-above");
+    Console.WriteLine("  Majo.LineEditing.Test multiline");
+    Console.WriteLine("  Majo.LineEditing.Test multiline-write-above");
+    Console.WriteLine("  Majo.LineEditing.Test multiline-resize");
+    Console.WriteLine("  Majo.LineEditing.Test multiline-resize-write-above");
 }

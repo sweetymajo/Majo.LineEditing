@@ -10,7 +10,7 @@ using LockType = System.Threading.Lock;
 using LockType = System.Object;
 #endif
 
-namespace Majo.LineEditor.Backends.Win32;
+namespace Majo.LineEditing.Backends.Win32;
 
 /// <summary>
 /// Implements line editing through the Win32 console API
@@ -354,6 +354,8 @@ internal class Win32LineEditorBackend : ILineEditorBackend
         uint originalOutputMode = 0;
         bool inputModeChanged = false;
         bool outputModeChanged = false;
+        
+        bool canceled = false;
 
         try
         {
@@ -795,6 +797,11 @@ internal class Win32LineEditorBackend : ILineEditorBackend
                 }
             }
         }
+        catch(OperationCanceledException) when(token.IsCancellationRequested)
+        {
+            canceled = true;
+            throw;
+        }
         finally
         {
             lock (_consoleLock)
@@ -806,7 +813,15 @@ internal class Win32LineEditorBackend : ILineEditorBackend
                     if (wasEditing)
                     {
                         SynchronizeRenderGeometry();
-                        SetCursorPosition(_renderedEnd);
+
+                        if (canceled)
+                        {
+                            ClearRenderedInput();
+                        }
+                        else
+                        {
+                            SetCursorPosition(_renderedEnd);
+                        }
                     }
 
                     if (inputModeChanged && !Win32ConsoleNative.SetConsoleMode(_inputHandle, originalInputMode))

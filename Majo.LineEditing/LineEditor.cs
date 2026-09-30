@@ -1,8 +1,8 @@
-﻿using Majo.LineEditor.Backends;
-using Majo.LineEditor.Backends.Posix;
-using Majo.LineEditor.Backends.Win32;
+﻿using Majo.LineEditing.Backends;
+using Majo.LineEditing.Backends.Posix;
+using Majo.LineEditing.Backends.Win32;
 
-namespace Majo.LineEditor;
+namespace Majo.LineEditing;
 
 /// <summary>
 /// Provides cross-platform interactive line editing
