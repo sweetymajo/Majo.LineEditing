@@ -6,7 +6,8 @@
         <Nullable>enable</Nullable>
         
         <PackageId>Majo.LineEditing</PackageId>
-        <Version>0.0.3</Version>
+        <Version>0.0.4</Version>
+        <PackageReleaseNotes>Clear the active input when a line read is interrupted with Ctrl+C</PackageReleaseNotes>
         <Authors>Sweety Majo</Authors>
         <Description>A small, cross-platform interactive line editor for .NET.</Description>
         <PackageTags>terminal;console;line-editor;cli;linenoise</PackageTags>

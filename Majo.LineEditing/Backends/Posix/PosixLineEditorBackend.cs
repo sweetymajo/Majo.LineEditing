@@ -192,7 +192,7 @@ internal class PosixLineEditorBackend : ILineEditorBackend
         CancellationToken token = linkedCts.Token;
         
         bool started = false;
-        bool canceled = false;
+        bool clearInput = false;
 
         try
         {
@@ -260,6 +260,7 @@ internal class PosixLineEditorBackend : ILineEditorBackend
                         AddHistory(text);
                         return new ReadResult(ReadStatus.Accepted, text);
                     case LinenoiseNative.Interrupted:
+                        clearInput = true;
                         return new ReadResult(ReadStatus.Interrupted, null);
                     case LinenoiseNative.EndOfInput:
                         return new ReadResult(ReadStatus.EndOfInput, null);
@@ -270,7 +271,7 @@ internal class PosixLineEditorBackend : ILineEditorBackend
         }
         catch (OperationCanceledException) when (token.IsCancellationRequested)
         {
-            canceled = true;
+            clearInput = true;
             throw;
         }
         finally
@@ -279,7 +280,7 @@ internal class PosixLineEditorBackend : ILineEditorBackend
             {
                 lock (_nativeLock)
                 {
-                    LinenoiseNative.Stop(handle, canceled ? 1 : 0);
+                    LinenoiseNative.Stop(handle, clearInput ? 1 : 0);
                 }
             }
         }

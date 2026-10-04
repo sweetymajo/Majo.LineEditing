@@ -355,7 +355,7 @@ internal class Win32LineEditorBackend : ILineEditorBackend
         bool inputModeChanged = false;
         bool outputModeChanged = false;
         
-        bool canceled = false;
+        bool clearInput = false;
 
         try
         {
@@ -494,6 +494,7 @@ internal class Win32LineEditorBackend : ILineEditorBackend
                 // Handle Ctrl+C as an interrupted read
                 if (ctrlPressed && key.VirtualKeyCode == Win32ConsoleNative.VirtualKeyC)
                 {
+                    clearInput = true;
                     return new ReadResult(ReadStatus.Interrupted, null);
                 }
 
@@ -799,7 +800,7 @@ internal class Win32LineEditorBackend : ILineEditorBackend
         }
         catch(OperationCanceledException) when(token.IsCancellationRequested)
         {
-            canceled = true;
+            clearInput = true;
             throw;
         }
         finally
@@ -814,7 +815,7 @@ internal class Win32LineEditorBackend : ILineEditorBackend
                     {
                         SynchronizeRenderGeometry();
 
-                        if (canceled)
+                        if (clearInput)
                         {
                             ClearRenderedInput();
                         }

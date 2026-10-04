@@ -2,6 +2,12 @@
 
 All notable changes to `Majo.LineEditing` are documented in this file.
 
+## 0.0.4 - 2026-10-04
+
+### Fixed
+
+- Clear the active input on both Windows and POSIX when `ReadLineAsync` is interrupted with `Ctrl+C`.
+
 ## 0.0.3 - 2026-10-01
 
 ### Changed
