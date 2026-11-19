@@ -31,7 +31,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="Wcwidth" Version="4.0.1" PrivateAssets="compile;contentfiles;build;analyzers" />
+      <PackageReference Include="Wcwidth" Version="5.0.2" PrivateAssets="compile;contentfiles;build;analyzers" />
     </ItemGroup>
     
     <ItemGroup>
