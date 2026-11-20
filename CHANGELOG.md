@@ -2,6 +2,12 @@
 
 All notable changes to `Majo.LineEditing` are documented in this file.
 
+## 0.0.5 - 2026-11-21
+
+### Changed
+
+- Updated dependency versions.
+
 ## 0.0.4 - 2026-10-04
 
 ### Fixed
